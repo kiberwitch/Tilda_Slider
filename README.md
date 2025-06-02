@@ -1,4 +1,4 @@
 # Tilda_Slider
 
 
-<img src="https://postimg.cc/JsGH0TZG" alt="" style = "widht: 400px;">
+<img src="https://i.postimg.cc/XYgf2mvc/image.jpg" alt="" style = "widht: 400px;">
