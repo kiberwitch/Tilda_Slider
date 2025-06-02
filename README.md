@@ -6,7 +6,7 @@
 ![Референс дизайна](https://i.postimg.cc/XYgf2mvc/image.jpg)
 
 **Видео работы реализованного слайдера:**  
-[![Видео работы слайдера](https://i.postimg.cc/XYgf2mvc/image.jpg)](https://ru.files.me/u/bwn2qepfff)  
+[![Видео работы слайдера]()](https://ru.files.me/u/bwn2qepfff)  
 *(кликните для просмотра видео)*
 
 ## Описание проекта
