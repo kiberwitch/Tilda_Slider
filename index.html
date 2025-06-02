@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .main {
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+
+      button {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+      }
+
+      .swiper {
+        overflow: hidden;
+        width: 1200px;
+      }
+
+      .swiper-wrapper {
+        display: flex;
+        width: 100%;
+      }
+
+      .swiper-slide {
+        width: 100% !important;
+        flex-shrink: 0;
+      }
+
+      .slider {
+        width: 1200px;
+        height: 1200px;
+      }
+
+      .title-sl {
+        display: flex;
+        justify-content: space-between;
+        width: 1200px;
+        margin-bottom: 30px;
+      }
+
+      .experience {
+        display: flex;
+      }
+
+      .experience h1 {
+        color: #252525;
+        font-size: 70px;
+        font-family: "Manrope", Arial, sans-serif;
+        line-height: 1;
+        font-weight: 500;
+        letter-spacing: -3.5px;
+        background-position: center center;
+        border-color: transparent;
+        border-style: solid;
+      }
+
+      .arrow {
+        width: 35%;
+      }
+
+      .buttons {
+        display: flex;
+        width: 400px;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .buttons p {
+        color: #cecece;
+        font-size: 17px;
+        font-family: "Manrope", Arial, sans-serif;
+        line-height: 1.2;
+        font-weight: 500;
+        background-position: center center;
+        border-color: transparent;
+        border-style: solid;
+      }
+
+      .buttons-arrow {
+        display: flex;
+        gap: 8px;
+      }
+
+      .arrow-left {
+        transition: transform 0.3s ease;
+      }
+
+      .arrow-right {
+        transition: transform 0.3s ease;
+      }
+
+      .arrow-left:hover {
+        transform: scale(1.05);
+      }
+
+      .arrow-right:hover {
+        transform: scale(1.05);
+      }
+
+      .info-slider {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        height: 1000px;
+      }
+
+      .info-slider img {
+        width: 200px;
+      }
+
+      .strip {
+        position: absolute;
+        top: 28px;
+        width: 1160px;
+        height: 100px;
+        border-radius: 26px 26px 26px 26px;
+        background-color: #252525;
+        background-position: center center;
+        border-color: #252525;
+        border-style: solid;
+      }
+
+      .slider-content {
+        position: absolute;
+        top: 50px;
+        width: 1164px;
+        height: 504px;
+        border-width: 1px;
+        border-radius: 26px 26px 26px 26px;
+        background-color: #ffffff;
+        background-position: center center;
+        border-color: #252525;
+        border-style: solid;
+      }
+
+      .case-card {
+        border-radius: 24px;
+        padding: 40px 32px 32px 32px;
+        max-width: 1160px;
+        font-family: "Inter", Arial, sans-serif;
+        position: relative;
+      }
+
+      .case-tags {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 32px;
+      }
+
+      .case-tag {
+        color: #252525;
+        font-size: 16px;
+        font-family: "Manrope", Arial, sans-serif;
+        line-height: 1.55;
+        font-weight: 500;
+        border-width: 1px;
+        border-radius: 30px 30px 30px 30px;
+        background-position: center center;
+        border-color: #252525;
+        border-style: solid;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+          border-color 0.2s ease-in-out;
+        padding: 5px 10px;
+      }
+
+      .case-progress {
+        margin-left: auto;
+        font-size: 16px;
+        color: #888;
+      }
+
+      .case-title {
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 1.2;
+        margin-bottom: 36px;
+      }
+
+      .case-title span {
+        color: #252525;
+        font-size: 32px;
+        font-family: "Manrope", Arial, sans-serif;
+        line-height: 1.25;
+        font-weight: 600;
+        background-position: center center;
+        border-color: transparent;
+        border-style: solid;
+      }
+
+      .case-info {
+        display: flex;
+        gap: 48px;
+        margin-bottom: 40px;
+      }
+
+      .case-info-block {
+        min-width: 220px;
+      }
+
+      .case-info-label {
+        color: #838383;
+        font-size: 17px;
+        font-family: "Manrope", Arial, sans-serif;
+        line-height: 1.2;
+        font-weight: 500;
+        background-position: center center;
+        border-color: transparent;
+        border-style: solid;
+      }
+
+      .case-info-value {
+        color: #252525;
+        font-size: 18px;
+        font-family: "Manrope", Arial, sans-serif;
+        line-height: 1.4;
+        font-weight: 500;
+        background-position: center center;
+        border-color: transparent;
+        border-style: solid;
+      }
+
+      .case-more img {
+        transform: rotate(45deg);
+      }
+
+      .case-more-btn {
+        display: flex;
+        align-items: center;
+        width: 200px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 35px;
+        color: #ffffff;
+        font-size: 16px;
+        font-family: "Arial", Arial, sans-serif;
+        line-height: 1.55;
+        font-weight: 600;
+        border-radius: 30px 30px 30px 30px;
+        background-color: #000000;
+        background-position: center center;
+        border-color: transparent;
+        border-style: solid;
+        gap: 20px;
+        margin-top: 50px;
+        margin-left: 120px;
+      }
+
+      .case-more-btn:hover {
+        background: #222;
+      }
+
+      .case-more-btn img {
+        width: 17px;
+      }
+
+      @media (max-width: 768px) {
+        .swiper {
+          width: 100%;
+        }
+
+        .slider-content {
+          width: 100%;
+          height: auto;
+        }
+
+        .title-sl {
+          flex-direction: column;
+          width: 100%;
+          gap: 20px;
+          margin-bottom: 20px;
+        }
+
+        .experience {
+          width: 100%;
+        }
+
+        .experience h1 {
+          font-size: 36px;
+          letter-spacing: -1px;
+        }
+
+        .arrow {
+          width: 25%;
+          max-width: 150px;
+        }
+
+        .buttons {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .buttons p {
+          font-size: 14px;
+        }
+
+        .slider {
+          width: 100%;
+          height: auto;
+        }
+
+        .info-slider {
+          height: 1300px;
+          padding-bottom: 40px;
+          margin-right: 5px;
+        }
+
+        .info-slider img {
+          width: 150px;
+        }
+
+        .strip {
+          width: 100%;
+          top: 20px;
+          height: 70px;
+        }
+
+        .case-tags {
+          flex-wrap: wrap;
+          margin-bottom: 20px;
+        }
+
+        .case-tag {
+          font-size: 14px;
+          padding: 4px 8px;
+        }
+
+        .case-progress {
+          margin-left: 0;
+        }
+
+        .case-title span {
+          font-size: 22px;
+          line-height: 1.3;
+        }
+
+        .case-info {
+          flex-direction: column;
+          gap: 20px;
+          margin-bottom: 20px;
+        }
+
+        .case-info-block {
+          min-width: 100%;
+        }
+
+        .case-info-value {
+          font-size: 16px;
+        }
+
+        .case-more-btn {
+          margin: 30px auto 0;
+          width: 180px;
+          padding-left: 25px;
+        }
+
+        .case-more-btn img {
+          width: 10%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .experience h1 {
+          font-size: 28px;
+        }
+
+        .buttons p {
+          font-size: 12px;
+        }
+
+        .buttons-arrow {
+          gap: 5px;
+        }
+
+        .case-title span {
+          font-size: 18px;
+        }
+
+        .case-info-label,
+        .case-info-value {
+          font-size: 14px;
+        }
+
+        .strip {
+          height: 60px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="swiper mySwiper">
+        <div class="title-sl">
+          <div class="experience">
+            <h1>Наш опыт</h1>
+            <img
+              src="https://i.postimg.cc/YCD4G3Px/arrow.png"
+              alt=""
+              class="arrow"
+            />
+          </div>
+          <div class="buttons">
+            <p>
+              Листайте, чтобы <br />
+              увидеть все кейсы
+            </p>
+            <div class="buttons-arrow">
+              <button class="arrow-left">
+                <img
+                  src="https://i.postimg.cc/4NZHrntp/arrow-left.png"
+                  alt=""
+                />
+              </button>
+              <button class="arrow-right">
+                <img
+                  src="https://i.postimg.cc/Dyg4FFdH/arrow-right.png"
+                  alt=""
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide">
+            <div class="slider">
+              <div class="info-slider">
+                <img src="вкладка.svg" alt="" />
+                <div class="strip"></div>
+                <div class="slider-content">
+                  <div class="case-card">
+                    <div class="case-tags">
+                      <span class="case-tag">#правовое_сопровождение</span>
+                      <span class="case-tag">#бизнес</span>
+                      <span class="case-progress">1/5</span>
+                    </div>
+                    <div class="case-title">
+                      <span
+                        >Как ATION LAW занимался правовым сопровождением <br />
+                        деятельности IT-компании «Impulse Neiry»</span
+                      >
+                    </div>
+                    <div class="case-info">
+                      <div class="case-info-block">
+                        <div class="case-info-label">Срок сотрудничества:</div>
+                        <div class="case-info-value">1 год</div>
+                      </div>
+                      <div class="case-info-block">
+                        <div class="case-info-label">
+                          Бизнес-задача клиента:
+                        </div>
+                        <div class="case-info-value">
+                          полное делегирование юридических вопросов<br />
+                          по сопровождению текущей деятельности компании<br />
+                          в связи с большой загрузкой штатных юристов.
+                        </div>
+                      </div>
+                      <div class="case-more">
+                        <button class="case-more-btn">
+                          Подробнее
+                          <img
+                            src="https://i.postimg.cc/MT9ZNK8m/icons8-24.png"
+                            alt=""
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide">
+            <div class="slider">
+              <div class="info-slider">
+                <img src="https://i.postimg.cc/v856q51Q/image.png" alt="" />
+                <div class="strip"></div>
+                <div class="slider-content">
+                  <div class="case-card">
+                    <div class="case-tags">
+                      <span class="case-tag">#правовое_сопровождение</span>
+                      <span class="case-tag">#бизнес</span>
+                      <span class="case-progress">2/5</span>
+                    </div>
+                    <div class="case-title">
+                      <span
+                        >Как ATION LAW помогал сопровождать деятельность одной
+                        <br />
+                        из крупнейших кинокомпаний в России, производящих <br />
+                        телесериалы и фильмы</span
+                      >
+                    </div>
+                    <div class="case-info">
+                      <div class="case-info-block">
+                        <div class="case-info-label">Срок сотрудничества:</div>
+                        <div class="case-info-value">проект в работе</div>
+                      </div>
+                      <div class="case-info-block">
+                        <div class="case-info-label">
+                          Бизнес-задача клиента:
+                        </div>
+                        <div class="case-info-value">
+                          комплексное сопровождение организации, помощь штатным
+                          <br />
+                          юристам в оперативном решении юридических задач,
+                          <br />
+                          делегирование комплексных задач нашей команде.
+                        </div>
+                      </div>
+                      <div class="case-more">
+                        <button class="case-more-btn">
+                          Подробнее
+                          <img
+                            src="https://i.postimg.cc/MT9ZNK8m/icons8-24.png"
+                            alt=""
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide">
+            <div class="slider">
+              <div class="info-slider">
+                <img src="вкладка.svg" alt="" />
+                <div class="strip"></div>
+                <div class="slider-content">
+                  <div class="case-card">
+                    <div class="case-tags">
+                      <span class="case-tag">#разработка_договоров</span>
+                      <span class="case-tag">#консультирование</span>
+                      <span class="case-progress">3/5</span>
+                    </div>
+                    <div class="case-title">
+                      <span
+                        >Консультирование и сопровождение сделки <br />
+                        анимационной студии «Platoshka» с китайским <br />
+                        сопродюсером</span
+                      >
+                    </div>
+                    <div class="case-info">
+                      <div class="case-info-block">
+                        <div class="case-info-label">
+                          Бизнес-задача клиента:
+                        </div>
+                        <div class="case-info-value" style="width: 750px">
+                          запрос клиента заключался в получении качественной и
+                          грамотной консультации <br />
+                          юристов по вопросу работы с сопродюсером, которым
+                          являлось юридическое лицо, <br />
+                          зарегистрированное в Китае, в рамках производства
+                          китайской версии <br />
+                          анимационного сериала.
+                        </div>
+                      </div>
+                      <div class="case-info-block"></div>
+                      <div class="case-more">
+                        <button class="case-more-btn">
+                          Подробнее
+                          <img
+                            src="https://i.postimg.cc/MT9ZNK8m/icons8-24.png"
+                            alt=""
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="swiper-slide">
+            <div class="slider">
+              <div class="info-slider">
+                <img src="вкладка.svg" alt="" />
+                <div class="strip"></div>
+                <div class="slider-content">
+                  <div class="case-card">
+                    <div class="case-tags">
+                      <span class="case-tag">#консультирование</span>
+                      <span class="case-tag">#судебное_представительство</span>
+                      <span class="case-progress">4/5</span>
+                    </div>
+                    <div class="case-title">
+                      <span
+                        >Защита авторских материалов инфлюенсера Ксении <br />
+                        Ткачук в суде, а также регистрация товарного знака
+                        <br />
+                        «Tkachuk Project» для проекта инфлюенсера</span
+                      >
+                    </div>
+                    <div class="case-info">
+                      <div class="case-info-block">
+                        <div class="case-info-label">
+                          Бизнес-задача клиента:
+                        </div>
+                        <div class="case-info-value" style="width: 750px">
+                          инфлюенсер снимала авторские вебинары, но после
+                          окончания сотрудничества с одной <br />
+                          компанией создала новые вебинары, используя одну и ту
+                          же исходную информацию. <br />
+                          Компания начала предъявлять иски в отношении бывших
+                          сотрудников с требованием<br />
+                          обязать инфлюенсера прекратить предлагать к продаже
+                          вебинары.
+                        </div>
+                      </div>
+                      <div class="case-info-block"></div>
+                      <div class="case-more">
+                        <button class="case-more-btn">
+                          Подробнее
+                          <img
+                            src="https://i.postimg.cc/MT9ZNK8m/icons8-24.png"
+                            alt=""
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5 (empty) -->
+          <div class="swiper-slide">
+            <div class="slider">
+              <div class="info-slider">
+                <img src="вкладка.svg" alt="" />
+                <div class="strip"></div>
+                <div class="slider-content">
+                  <div class="case-card">
+                    <div class="case-tags">
+                      <span class="case-tag">#консультирование</span>
+                      <span class="case-tag">#разработка_договоров</span>
+                      <span class="case-progress">5/5</span>
+                    </div>
+                    <div class="case-title">
+                      <span
+                        >Сопровождение нескольких сделок лицензионного <br />
+                        агентства в Лондоне (TRO Distribution), занимающегося
+                        <br />
+                        дистрибуцией медиаконтента на TV и
+                        digital-площадки</span
+                      >
+                    </div>
+                    <div class="case-info">
+                      <div class="case-info-block">
+                        <div class="case-info-label">
+                          Бизнес-задача клиента:
+                        </div>
+                        <div class="case-info-value" style="width: 750px">
+                          сопровождение сделок на английском языке, выявление
+                          правовых <br />
+                          рисков и консультирование в процессе проведения
+                          сделки.
+                        </div>
+                      </div>
+                      <div class="case-info-block"></div>
+                      <div class="case-more">
+                        <button class="case-more-btn">
+                          Подробнее
+                          <img
+                            src="https://i.postimg.cc/MT9ZNK8m/icons8-24.png"
+                            alt=""
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        loop: true,
+        slidesPerView: 1,
+        effect: "slide",
+        speed: 400,
+        navigation: {
+          nextEl: ".arrow-right",
+          prevEl: ".arrow-left",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          type: "bullets",
+        },
+      });
+    </script>
+  </body>
+</html>
