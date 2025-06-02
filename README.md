@@ -1,3 +1,4 @@
 # Tilda_Slider
 
-https://postimg.cc/JsGH0TZG
+
+<img src="https://postimg.cc/JsGH0TZG" alt="">
