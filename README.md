@@ -1,9 +1,14 @@
-# Tilda_Slider
+# Tilda_Slider - Кастомный слайдер на Swiper.js
 
+## Референс и результат
 
-<img src="https://i.postimg.cc/XYgf2mvc/image.jpg" alt="" style = "widht: 400px;">
+**Исходный референс дизайна:**  
+![Референс дизайна](https://i.postimg.cc/XYgf2mvc/image.jpg)
 
+**Видео работы реализованного слайдера:**  
+[![Видео работы слайдера](https://i.postimg.cc/XYgf2mvc/image.jpg)](https://ru.files.me/u/bwn2qepfff)  
+*(кликните для просмотра видео)*
 
-# Что сделал я: 
+## Описание проекта
 
-<video src="https://ru.files.me/u/bwn2qepfff"  style = "widht: 400px;"></video>
+Я создал полностью кастомный адаптивный слайдер, используя библиотеку Swiper.js...
